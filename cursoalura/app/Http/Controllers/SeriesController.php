@@ -55,4 +55,13 @@ class SeriesController extends Controller
             );
         return redirect('/series');
     }
+
+
+    public function editaNome($id, Request $request)
+    {
+        $novoNome = $request->nome;
+        $serie = Serie::find($id);
+        $serie->nome = $novoNome;
+        $serie->save();
+    }
 }
