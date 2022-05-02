@@ -7,11 +7,7 @@
 @endsection
  
 @section('conteúdo')
-    @if(!empty($mensagem))
-        <div class="alert alert-success">
-            {{ $mensagem }}
-        </div>
-    @endif
+@include('mensagem', ['mensagem' => $mensagem])
     <a href="{{route('adicionar')}}" class="btn btn-dark mb-2">Adicionar</a>
     
     @if ($series->count() == 0)
