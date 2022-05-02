@@ -13,7 +13,7 @@
         @foreach ($temporadas as $temporada)
             <li class="list-group-item d-flex justify-content-between align-items-center">
             {{ $temporada->numero }}ª Temporada
-            <a href="#" class="btn btn-primary">ver episódios</a>
+            <a href="/temporadas/{{ $temporada->id }}/episodios" class="btn btn-primary">ver episódios</a>
             <span class="badge badge-secondary bg-dark">
                 {{$temporada->episodios->count()}}
             </span>
