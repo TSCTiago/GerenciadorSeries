@@ -28,9 +28,13 @@ Route::delete('/series/{id}',[SeriesController::class,'destroy']);
 Route::post('/series/{id}/editaNome', [SeriesController::class, 'editaNome']);
 Route::get('/series/{serieId}/temporadas', [TemporadasController::class, 'index']);
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index']);
+<<<<<<< HEAD
 
 Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
+Route::post('/temporada/{temporadaId}/episodios/assistir', [EpisodiosController::class, 'assistir']);
+>>>>>>> 6ed9448c3102befc2f8ef150d77e181079cd42b9
