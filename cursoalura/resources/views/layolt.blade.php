@@ -12,6 +12,10 @@
  
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
+        <a class="navbar navbar-expand-lg" href="{{ route('series') }}">Home</a>
+        <a href="/sair" class="text-danger">Sair</a>
+   </nav>
     <div class="container">
         <div class="jumbotron text-center bg-secondary progress d-flex justify-content-center align-items-center mb-5" style="height: 200px">
             <h1>@yield('cabeçalho')</h1>

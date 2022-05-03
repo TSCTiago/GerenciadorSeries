@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EntrarController;
 use App\Http\Controllers\EpisodiosController;
+use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\TemporadasController;
 use Illuminate\Support\Facades\Auth;
@@ -28,13 +30,17 @@ Route::delete('/series/{id}',[SeriesController::class,'destroy']);
 Route::post('/series/{id}/editaNome', [SeriesController::class, 'editaNome']);
 Route::get('/series/{serieId}/temporadas', [TemporadasController::class, 'index']);
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index']);
-<<<<<<< HEAD
-
 Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir']);
+Route::get('/entrar', [EntrarController::class, 'index']);
+Route::post('/entrar', [EntrarController::class, 'entrar']);
+Route::get('/registrar', [RegistroController::class, 'create']);
+Route::post('/registrar', [RegistroController::class, 'store']);
+Route::get('/sair', function () {
+    Auth::logout();
+    return redirect('/entrar');
+});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
-Route::post('/temporada/{temporadaId}/episodios/assistir', [EpisodiosController::class, 'assistir']);
->>>>>>> 6ed9448c3102befc2f8ef150d77e181079cd42b9
+
