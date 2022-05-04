@@ -16,7 +16,7 @@
 
         <a class="navbar navbar-expand-lg" href="{{ route('series') }}">Home</a>
         @auth
-        
+        Olá, {{ auth()->user()->name }}
         <a href="/sair" class="text-danger">Sair</a>
         @endauth
        @guest

@@ -8,9 +8,6 @@
  
 @section('conteúdo')
 @include('mensagem', ['mensagem' => $mensagem])
-<li>
-    {{ $users->first()->name }}
-</li>
     @auth
     <a href="{{route('adicionar')}}" class="btn btn-dark mb-2">Adicionar</a>
     @endauth
