@@ -9,21 +9,25 @@ use App\Models\Serie;
 use App\Services\CriadordeSerie;
 use App\Services\RemovedorDeSerie;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class SeriesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index(Request $request)
     {
         $series = Serie::query()->orderBy('nome')->get();
+        $users = User::query()->orderBy('name')->get();
+        
+        // $user = User::select([
+        //     'users.name'
+        // ])->get();
+  
 
         $mensagem = $request->session()->get('mensagem');
 
-        return view('series.index', compact('series', 'mensagem'));
+        return view('series.index', compact('series', 'mensagem', 'users'));
     }
 
     public function create()

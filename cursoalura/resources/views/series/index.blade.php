@@ -8,7 +8,12 @@
  
 @section('conteúdo')
 @include('mensagem', ['mensagem' => $mensagem])
+<li>
+    {{ $users->first()->name }}
+</li>
+    @auth
     <a href="{{route('adicionar')}}" class="btn btn-dark mb-2">Adicionar</a>
+    @endauth
     
     @if ($series->count() == 0)
         <div class="list-group-item d-block text-center">
@@ -34,12 +39,15 @@
         </div>
 
     <span class="d-flex justify-content-between">
+        @auth
         <button class="btn btn-info btn-sm mr-1" onclick="toggleInput({{ $serie->id }})">
             <i class="fas fa-edit"></i>
         </button>
+        @endauth
         <a href="/series/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm mr-1">
             <i class="fas fa-external-link-alt"></i>
         </a>
+        @auth
         <form method="post" action="/series/{{ $serie->id }}"
               onsubmit="return confirm('Tem certeza que deseja excluir {{$serie->nome}}?')">
             @csrf
@@ -48,6 +56,7 @@
                 <i class="far fa-trash-alt"></i>
             </button>
         </form>
+        @endauth
     </span>
 </li>
 @endforeach

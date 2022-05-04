@@ -13,8 +13,15 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
+
         <a class="navbar navbar-expand-lg" href="{{ route('series') }}">Home</a>
+        @auth
+        
         <a href="/sair" class="text-danger">Sair</a>
+        @endauth
+       @guest
+        <a href="/entrar">Entrar</a>
+       @endguest
    </nav>
     <div class="container">
         <div class="jumbotron text-center bg-secondary progress d-flex justify-content-center align-items-center mb-5" style="height: 200px">
